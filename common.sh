@@ -139,8 +139,8 @@ Diy_adgu() {
 if [ `grep -c "CONFIG_PACKAGE_luci-app-adguardhome=y" ${Home}/.config` -eq '1' ]; then
 	if [[ "${TARGET_PROFILE}" == "x86-64" ]]; then
 		mkdir -p files/usr/bin
-		curl -fsSL  https://raw.githubusercontent.com/281677160/ceshi1/AdGuard/x86-adgu/usr/bin/AdGuardHome > ./files/usr/bin/AdGuardHome
-		chmod -R +x ./files
+		curl -fsSL  https://raw.githubusercontent.com/281677160/ceshi1/AdGuard/x86-adgu/usr/bin/AdGuardHome > ${Home}/files/usr/bin/AdGuardHome
+		chmod -R +x ${Home}/files
 	fi
 fi
 }
