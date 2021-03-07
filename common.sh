@@ -7,7 +7,7 @@
 Diy_all() {
 git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-package package/danshui
 git clone https://github.com/281677160/luci-app-autoupdate package/luci-app-autoupdate
-mv "${PATH1}"/{AutoUpdate.sh,AutoBuild_Tools.sh} package/base-files/files/bin
+mv common/{AutoUpdate.sh,AutoBuild_Tools.sh} package/base-files/files/bin
 chmod -R +x package/base-files/files/bin
 }
 
@@ -26,7 +26,7 @@ rm -rf ./*/*/{LICENSE,README,README.md}
 # LEDE源码通用diy1.sh文件
 ################################################################################################################
 Diy_lede() {
-cp -Rf build/common/LEDE/* "${PATH1}"
+cp -Rf common/LEDE/* "${PATH1}"
 rm -rf package/lean/v2ray-plugin
 rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
 sed -i 's/iptables -t nat/# iptables -t nat/g' package/lean/default-settings/files/zzz-default-settings
@@ -39,7 +39,7 @@ git clone https://github.com/fw876/helloworld package/danshui/luci-app-ssr-plus
 git clone https://github.com/xiaorouji/openwrt-passwall package/danshui/luci-app-passwall
 git clone https://github.com/jerrykuku/luci-app-vssr package/danshui/luci-app-vssr
 git clone https://github.com/vernesong/OpenClash package/danshui/luci-app-openclash
-git clone https://github.com/frainzy1477/luci-app-clash package/danshui/luci-app-clash
+#git clone https://github.com/frainzy1477/luci-app-clash package/danshui/luci-app-clash
 git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
