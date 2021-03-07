@@ -26,7 +26,7 @@ rm -rf ./*/*/{LICENSE,README,README.md}
 # LEDE源码通用diy1.sh文件
 ################################################################################################################
 Diy_lede() {
-cp -Rf common/LEDE/* "${PATH1}"
+mv common/LEDE/* ./
 rm -rf package/lean/v2ray-plugin
 rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
 sed -i 's/iptables -t nat/# iptables -t nat/g' package/lean/default-settings/files/zzz-default-settings
